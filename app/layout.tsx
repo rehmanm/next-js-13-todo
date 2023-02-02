@@ -1,3 +1,4 @@
+import React from 'react'
 import Footer from './Footer'
 import './globals.css'
 import Header from './Header'
@@ -15,9 +16,9 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <div className='flex flex-col h-screen justify-between'>
+        <div className='h-screen flex flex-col'>
         <Header />
-        {children}
+        <main className='flex flex-1 overflow-auto'>{children}</main>
         <Footer />
         </div>
         </body>

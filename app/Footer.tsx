@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className='h-10 text-center bg-blue-100 static bottom-0'>
+    <footer className='sticky top-[100vh] text-center bg-blue-100'>
       I am footer
     </footer>
   )
