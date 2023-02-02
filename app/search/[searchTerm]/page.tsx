@@ -15,7 +15,8 @@ type SearchResult = {
       thumbnail: string;
       snippet: string
     }
-  ], updated_on: number
+  ], updated_on: number,
+  searchTerm: string,
 }
 
 async function search(searchTerm:string) {
@@ -46,3 +47,17 @@ async function SearchResults({params: {searchTerm}}:PageProps) {
 }
 
 export default SearchResults
+
+export async function generateStaticParams(){
+
+  const result: SearchResult[] = [];
+  const res = await fetch(`http://localhost:3000/api/search?searchTerm=d`); 
+  const data: SearchResult = await res.json(); 
+  result.push(data)
+
+
+  return result.map(d => ({
+    searchTerm: d.searchTerm.toString()  
+  }))
+
+}

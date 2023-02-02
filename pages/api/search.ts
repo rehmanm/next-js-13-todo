@@ -15,12 +15,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             link: "www.abc.com",
             thumbnail: "thumbnail 2",
             snippet: "sample snippet 2"
-          }
+        }
       ]
 
 
     const updated_on = (new Date()).getTime()
     res.status(200).json(
-        { organic_results, 
-        updated_on });
+        { 
+            organic_results, 
+            updated_on,
+            searchTerm: req.query.searchTerm
+        });
 }
